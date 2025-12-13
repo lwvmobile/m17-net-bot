@@ -10,13 +10,21 @@
 ### M17 Net Bot Commands:
 
 `*get tle` to retreive ISS TLE data and send via 0x07 Packet Data.
+
 `*get wttr {insert location}` to get simple weather from wttr.in service as 0x05 SMS Text and TTS voice.
+
 `*get time` to get local time returned as 0x05 SMS Text.
+
 `*get lucky` to get a set of 6 randomly generated numbers returned as 0x05 SMS Text.
+
 `*get 8ball {insert question here optional}` to get your eight ball fortune returned as 0x05 SMS Text.
+
 '*tts {insert text for TTS} to convert insert text into speech and encode/stream to Codec2 3200bps.
+
 `*read filename.txt` to convert a bot local .txt file into speech and encode/stream to Codec2 3200bps.
+
 `*play wavname.wav` to encode a S16LE 48k/1 encoded wav file and encode/stream to Codec2 3200bps.
+
 
 ### M17 Net Bot Advertisement
 
