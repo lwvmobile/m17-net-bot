@@ -1,0 +1,15 @@
+*.[ao]
+*.so*
+*.dylib
+build
+*.sh
+*.csv
+examples
+*.bin
+*.sym
+*.wav
+*.ans
+*.patch
+*.zip
+result
+*.txt

@@ -1,0 +1,14 @@
+my_src_callsign=N0CALL
+my_dst_callsign=@ALL
+m17_udp_hostname=192.168.7.255
+m17_udp_portno=17000
+reflector_module=C
+adhoc_mode=1
+send_advertisement_traffic=1
+advertisement_time_interval=600
+advertisement_text_file=../samples/advertisement.txt
+pre_encoded_wav_file=../samples/wav_file.wav
+my_tle_source=http://celestrak.org/NORAD/elements/supplemental/sup-gp.php?FILE=starlink-g6-86&FORMAT=tle
+my_weather_location=
+lsf_type_version=2
+my_can=0

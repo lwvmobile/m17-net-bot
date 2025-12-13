@@ -1,0 +1,1 @@
+This is an M17 Bot provided by lwvmobile, users should insert their own information here. For more information and a list of bot commands, see https://github.com/lwvmobile/m17-net-bot

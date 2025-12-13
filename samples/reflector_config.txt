@@ -1,0 +1,14 @@
+my_src_callsign=
+my_dst_callsign=@ALL
+m17_udp_hostname=ENTER_IP_ADDRESS_HERE
+m17_udp_portno=17000
+reflector_module=C
+adhoc_mode=0
+send_advertisement_traffic=0
+advertisement_time_interval=3600
+advertisement_text_file=../samples/advertisement.txt
+pre_encoded_wav_file=../samples/wav_file.wav
+my_tle_source=https://live.ariss.org/iss.txt
+my_weather_location=
+lsf_type_version=2
+my_can=0
