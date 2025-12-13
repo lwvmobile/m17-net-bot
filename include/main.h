@@ -3,7 +3,7 @@
 
 //M17 Versioning
 #define SPEC_VERSION "3.0.0-draft"
-#define SPEC_DATE "Nov 16, 2025"
+#define SPEC_DATE "Dec 04, 2025"
 
 #include <stdio.h>
 #include <stdlib.h>
