@@ -19,7 +19,7 @@
 
 `*get 8ball {insert question here optional}` to get your eight ball fortune returned as 0x05 SMS Text.
 
-'*tts {insert text for TTS}` to convert insert text into speech and encode/stream to Codec2 3200bps.
+`*tts {insert text for TTS}` to convert insert text into speech and encode/stream to Codec2 3200bps.
 
 `*read filename.txt` to convert a bot local .txt file into speech and encode/stream to Codec2 3200bps.
 
