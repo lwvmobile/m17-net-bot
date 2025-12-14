@@ -323,5 +323,8 @@ int main(int argc, char ** argv)
   //the main loop
   ip_bot_start();
 
+  //linebreak
+  fprintf (stderr, "\n");
+
   return 0;
 }

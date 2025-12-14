@@ -134,7 +134,7 @@ int tts_to_stream(char * tts_string)
   sprintf(command, "espeak-ng \"%s to %s %s\" -v en-gb-x-rp -s 140 -p 20 -a 75 -w tts.wav", src_csd, dst_csd, tts_string);
   #endif
   #ifdef PIPER1
-  sprintf(command, "python3 -m piper -m en_US-norman-medium -f tts.wav --volume 0.85 -- \'%s to %s %s\'", src_csd, dst_csd, tts_string);
+  sprintf(command, "python3 -m piper -m en_US-norman-medium -f tts.wav --volume 0.45 -- \'%s to %s %s\'", src_csd, dst_csd, tts_string);
   #endif
   system(command);
 

@@ -1,4 +1,4 @@
-my_src_callsign=N0CALL
+my_src_callsign=M17NETBOT
 my_dst_callsign=@ALL
 m17_udp_hostname=192.168.7.255
 m17_udp_portno=17000
