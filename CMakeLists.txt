@@ -17,7 +17,7 @@ endif ()
 
 #use cmake option -DUSEESPEAKNG=ON
 option(USEESPEAKNG
-    "Build with espeak support" OFF)
+    "Build with espeak-ng support" OFF)
 if (USEESPEAKNG)
     add_definitions(-DESPEAKNG)
 endif ()

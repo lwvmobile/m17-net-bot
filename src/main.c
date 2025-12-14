@@ -107,16 +107,6 @@ void init_global(void)
   memset(this_src_callsign, 0, sizeof(this_src_callsign));
   memset(this_dst_callsign, 0, sizeof(this_dst_callsign));
 
-  //activate the Python environment with PIPER1 installed in it
-  //create environment with "python3 -m venv piper1" -- no quotations
-  //activate with "source piper1/bin/activate"
-  //install piper1 with "pip install piper-tts"
-  //list voices with "python3 -m piper.download_voices"
-  //download voice with "python3 -m piper.download_voices en_US-norman-medium"
-  #ifdef PIPER1
-  system("source piper1/bin/activate");
-  #endif
-
 }
 
 void handler(int sgnl)

@@ -95,6 +95,9 @@ make
 
 To run m17-net-bot with the recommended setup, run `./m17-net-bot ../samples/config.txt`
 
+Be sure to activate your venv with piper in it before running the bot, if closing and opening a new terminal, etc.
+`source piper1/bin/activate`
+
 Alternatively, for low powered hardware devices (Raspberry Pi, Old Computers, etc) using espeak instead of piper may perform much better with less impact and time on encoding TTS. To build for a lower powered devices, run:
 
 ```
@@ -102,7 +105,9 @@ git clone https://github.com/lwvmobile/m17-net-bot
 cd m17-net-bot
 mkdir build
 cd build
-cmake .. -DESPEAK=ON #if using espeak
-#cmake .. -DESPEAKNG=ON #if using espeak-ng
+#if using espeak (default TTS)
+cmake .. -DUSETTS=ON
+#if using espeak-ng
+#cmake .. -DUSEESPEAKNG=ON
 make
 ```
