@@ -9,7 +9,7 @@
 
 ### M17 Net Bot Commands:
 
-`*get tle` to retreive ISS TLE data and send via 0x07 Packet Data.
+`*get tle` to retreive Satellite TLE data and send via 0x07 Packet Data.
 
 `*get wttr {insert location}` to get simple weather from wttr.in service as 0x05 SMS Text and TTS voice.
 
@@ -38,7 +38,7 @@ M17 Net Bot Supports both Version 2.0.x LSF and Version 3.0.x draft LSF, and is 
 
 IP6 is currently not supported, but might be supported in a future update.
 
-M17 Net Bot makes use of the system command for TTS functionality.
+M17 Net Bot makes use of the system command for TTS and TLE fetching.
 
 M17 Net Bot will make best effort attempts to not interrupt a voice stream in progress, but may potentially send Packet Data if Packet Data command received during a voice stream if the reflector supports it. Please be courteous and not set advertisement intervals to be very frequent, or constantly spam TTS or other commands on busy reflectors.
 
@@ -55,22 +55,23 @@ To use M17 Net Bot, simply configure the easy to use config.txt files which can 
 An Example Configuration File will look like this, including all supported settings: 
 
 ```
-my_src_callsign=CALLSIGN9
+my_src_callsign=BASE40CSD
 my_dst_callsign=@ALL
-m17_udp_hostname=ENTER_IP_ADDRESS_HERE
+m17_udp_hostname=ENTER_IP4_ADDRESS_HERE
 m17_udp_portno=17000
 reflector_module=C
 adhoc_mode=0
 send_advertisement_traffic=0
 advertisement_time_interval=3600
 advertisement_text_file=../samples/advertisement.txt
+pre_encoded_wav_file=../samples/wav_file.wav
 my_tle_source=https://live.ariss.org/iss.txt
 my_weather_location=Anytown USA
 lsf_type_version=2
 my_can=0
 ```
 
-Its recommended to make a copy of one of the config.txt files from samples, and put your callsign in it, the IP of the refelctor you wish to connect to along with the correct module letter.
+It is recommended to make a copy of one of the config.txt files from samples, and put your callsign in it, the IP of the refelctor you wish to connect to along with the correct module letter.
 
 ### How to Build
 

@@ -1,6 +1,6 @@
 my_src_callsign=
 my_dst_callsign=@ALL
-m17_udp_hostname=ENTER_IP_ADDRESS_HERE
+m17_udp_hostname=ENTER_IP4_ADDRESS_HERE
 m17_udp_portno=17000
 reflector_module=C
 adhoc_mode=0
