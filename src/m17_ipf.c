@@ -61,6 +61,15 @@ void ip_frame_decoder (uint8_t * input, int len)
   if (memcmp(input, m17s, 4) == 0) //m17 stream frame
   {
 
+    //source info on stream starts at 12
+    memset(src_csd, 0, sizeof(src_csd));
+    convert_array_to_csd(input+12, src_csd);
+
+    //new voice stream detection / notification
+    if (busy_signal == 0)
+      fprintf (stderr, "\nNew Stream From: %s ", src_csd);
+    else fprintf (stderr, ".");
+
     //update stream traffic receive time and lockout stream 
     //replies (TTS, Play, Ads) until busy_signal is lifted
     last_stream_traffic_received = time(NULL);
@@ -78,10 +87,10 @@ void ip_frame_decoder (uint8_t * input, int len)
       uint8_t eot = input[34] >> 7;
 
       //debug
-      fprintf (stderr, " \n Stream FN: %04X;", fn);
+      // fprintf (stderr, " \n Stream FN: %04X;", fn);
 
       //debug 
-      fprintf (stderr, " CRC: %04X / %04X;", str_crc_ext, str_crc_cmp);
+      // fprintf (stderr, " CRC: %04X / %04X;", str_crc_ext, str_crc_cmp);
 
       //set busy_signal to 0 if EOT
       if (eot == 1)
@@ -92,11 +101,11 @@ void ip_frame_decoder (uint8_t * input, int len)
         if ( (send_advertisement_traffic == 1) && (time(NULL) - last_advertisement_traffic_sent) > advertisement_time_interval)
           last_advertisement_traffic_sent += (fn/25)+2;
 
-        //debug
+        //end of stream detection
         fprintf (stderr, " EOT;");
       }
     }
-    else fprintf (stderr, "\n Stream CRC ERR: %04X / %04X;", str_crc_ext, str_crc_cmp);
+    // else fprintf (stderr, "\n Stream CRC ERR: %04X / %04X;", str_crc_ext, str_crc_cmp);
 
   }
   else if (memcmp(input, m17p, 4) == 0) //m17 packet frame

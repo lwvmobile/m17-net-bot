@@ -30,7 +30,10 @@ void ip_bot_start(void)
 
     //lift a busy signal after 2 seconds of stream traffic
     if ( (busy_signal == 1) && ((time(NULL) - last_stream_traffic_received) > 2) )
+    {
       busy_signal = 0;
+      fprintf (stderr, "Stream Timeout;");
+    }
 
     if (busy_signal == 0 && send_advertisement_traffic == 1 && (time(NULL) - last_advertisement_traffic_sent) > advertisement_time_interval)
       bot_advertisement();
@@ -139,7 +142,7 @@ int tts_to_stream(char * tts_string)
   system(command);
 
   //debug
-  // fprintf (stderr, "\nTTS Command: %s", command);
+  fprintf (stderr, "\nTTS Message: %s", tts_string);
 
   //if TTS command entered, then execute steps below
   if (command[0] != 0)
@@ -238,6 +241,7 @@ int get_wttr_string (char * reply_string, char * weather_location)
   char * format = "Weather:%l+Temp:%t+Conditions:%C+Wind:%w+Humidity:%h";
   int len = -1;
   char command[1024]; memset(command, 0, sizeof(command));
+  fprintf (stderr, "\n\n");
   sprintf (command, "wget https://wttr.in/%s?format=%s -O weather.txt --timeout=20", weather_location, format);
   system(command);
 
@@ -278,6 +282,7 @@ int get_tle_string (char * reply_string)
 {
   int len = -1;
   char command[1024]; memset(command, 0, sizeof(command));
+  fprintf (stderr, "\n\n");
   sprintf (command, "wget --timeout=20 -O tle.txt %s", my_tle_source);
   system(command);
 
@@ -415,7 +420,6 @@ int ip_text_response (uint8_t * input, int len)
   {
     if (strncmp(text_string, "get tle", 7) == 0)
     {
-      //TODO: wget that TLE with a system command and encode packet with it
       sprintf (reply_string, "Attempting to get TLE Data.");
       reply_protocol = 0x05;
       ip_packet_frame_encoder(reply_string, reply_protocol);
@@ -517,7 +521,7 @@ int ip_text_response (uint8_t * input, int len)
     }
 
     //debug print
-    fprintf (stderr, "Bot Reply to %s: \n%s", this_dst_callsign, reply_string);
+    fprintf (stderr, "\nBot Reply to %s command \"%s\": \n%s", this_dst_callsign, text_string, reply_string);
 
   }
 
@@ -563,4 +567,9 @@ void bot_advertisement(void)
 
   ip_packet_frame_encoder(ad_string, 0x05);
   last_advertisement_traffic_sent = time(NULL);
+
+  //debug print
+  char ad_time_string[100]; memset(ad_time_string, 0, sizeof(ad_time_string));
+  get_local_asc_time(last_advertisement_traffic_sent, ad_time_string);
+  fprintf (stderr, "\nAdvertisement Traffic Sent at %s ", ad_time_string);
 }

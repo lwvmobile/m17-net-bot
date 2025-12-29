@@ -134,9 +134,9 @@ int read_config_file(char * filename)
 
   while (!feof(config_file))
   {
-    char * config_string = calloc(100, sizeof(char));
+    char * config_string = calloc(300, sizeof(char));
 
-    fgets(config_string, 99, config_file);
+    fgets(config_string, 299, config_file);
 
     //replace ending linebreak with a terminator
     len = strcspn(config_string, "\n");
@@ -270,7 +270,7 @@ int read_config_file(char * filename)
   //close file
   fclose(config_file);
 
-  fprintf (stderr, "\n\n");
+  fprintf (stderr, "\n");
 
   return len;
 
